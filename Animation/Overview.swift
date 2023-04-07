@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct Overview: View {
+    @State private var animationAmount = 1.0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("Tap me!") {
+            animationAmount += 1
+        }
+            .padding(50)
+            .background(.red)
+            .foregroundColor(.white)
+            .clipShape(Circle())
+        
+            .scaleEffect(animationAmount)
+            .blur(radius: (animationAmount - 1) * 2)
+            .animation(.default, value: animationAmount)
     }
 }
 
