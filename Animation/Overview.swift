@@ -14,10 +14,10 @@ struct Overview: View {
         Button("Tap me!") {
             animationAmount += 1
         }
-            .padding(50)
-            .background(.red)
-            .foregroundColor(.white)
-            .clipShape(Circle())
+                .padding(50)
+                .background(.red)
+                .foregroundColor(.white)
+                .clipShape(Circle())
         
             .scaleEffect(animationAmount)
             .blur(radius: (animationAmount - 1) * 2)
