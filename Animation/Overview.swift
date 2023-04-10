@@ -22,6 +22,8 @@ struct Overview: View {
     }
 }
 
+//TODO: add requered notification about state anim
+
 struct Overview_Previews: PreviewProvider {
     static var previews: some View {
         Overview()
