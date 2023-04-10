@@ -14,34 +14,11 @@ struct Overview: View {
         Button("Tap me!") {
 //            animationAmount += 1
         }
+            .frame(width: 100, height: 100)
             .padding(50)
             .background(.red)
             .foregroundColor(.white)
             .clipShape(Circle())
-        
-            .overlay(
-                Circle()
-                    .stroke(.red)
-                    .scaleEffect(animationAmount)
-                    .opacity(2 - animationAmount)
-                    .animation(
-                        .easeInOut(duration: 1)
-                            .repeatForever(autoreverses: false),
-                        value: animationAmount
-                    )
-            )
-            .onAppear {
-                animationAmount = 2
-            }
-        
-//            .scaleEffect(animationAmount)
-//            .blur(radius: (animationAmount - 1) * 2)
-//            .animation(
-//                .easeInOut(duration: 1)
-//                    .delay(1)
-//                    .repeatForever(autoreverses: true),
-//                value: animationAmount
-//            )
     }
 }
 
