@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var isEnabled = false
     @State private var dragAmount = CGSize.zero
+    @State private var isShowingRed = false
     
     let letters = Array("Hello, SwiftUI")
     
@@ -58,6 +59,20 @@ struct ContentView: View {
             }
         )
         
+        VStack {
+            Button("Tap me") {
+                withAnimation {
+                    isShowingRed.toggle()
+                }
+            }
+            
+            if isShowingRed {
+                Rectangle()
+                    .fill(.red)
+                    .frame(width: 200, height: 200)
+                    .transition(.asymmetric(insertion: .scale, removal: .opacity))
+            }
+        }
     }
 }
     
