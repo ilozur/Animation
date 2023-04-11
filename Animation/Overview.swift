@@ -12,17 +12,49 @@ struct Overview: View {
     
     var body: some View {
         Button("Tap me!") {
+            animationAmount += 1
+        }
+        .padding(50)
+        .background(.red)
+        .foregroundColor(.white)
+        .clipShape(Circle())
+        .overlay(
+            Circle()
+                .stroke(.red)
+                .scaleEffect(animationAmount)
+                .opacity(2 - animationAmount)
+        )
+        .scaleEffect(animationAmount)
+//        .blur(radius: (animationAmount - 1) * 3)
+        .animation(
+            .easeInOut(duration: 1)
+                .repeatForever(autoreverses: true),
+            value: animationAmount
+        )
+  
+        Button("Tap me!") {
 //            animationAmount += 1
         }
-            .frame(width: 100, height: 100)
-            .padding(50)
-            .background(.red)
-            .foregroundColor(.white)
-            .clipShape(Circle())
+        .padding(50)
+        .background(.red)
+        .foregroundColor(.white)
+        .clipShape(Circle())
+        .overlay(
+            Circle()
+                .stroke(.red)
+                .scaleEffect(animationAmount)
+                .opacity(2 - animationAmount)
+                .animation(
+                    .easeInOut(duration: 1)
+                        .repeatForever(autoreverses: false),
+                    value: animationAmount
+                )
+        )
+        .onAppear {
+            animationAmount = 2
+        }
     }
 }
-
-//TODO: add requered notification about state anim
 
 struct Overview_Previews: PreviewProvider {
     static var previews: some View {
